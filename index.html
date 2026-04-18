@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="A Q&amp;A bot based on Rich Dad Poor Dad by Robert Kiyosaki. Ask anything about financial literacy, assets, liabilities, investing, and more." />
+  <meta name="theme-color" content="#f4a228" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="RichDadBot" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rich Dad Poor Dad Q&amp;A Bot" />
+  <meta property="og:description" content="Ask questions about financial literacy from Rich Dad Poor Dad" />
+  <meta property="og:type" content="website" />
+
+  <title>Rich Dad Poor Dad – Q&amp;A Bot</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Loading overlay shown while book content is being indexed -->
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <p>Loading book content…</p>
+</div>
+
+<div id="app">
+
+  <!-- Install banner (shown when PWA install is available) -->
+  <div id="install-banner" aria-live="polite">
+    <span>📱 Install this app on your device</span>
+    <button id="install-btn">Install</button>
+    <button id="install-dismiss" aria-label="Dismiss install prompt">✕</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-icon" aria-hidden="true">📚</div>
+    <div class="header-text">
+      <h1>Rich Dad Poor Dad Bot</h1>
+      <p>Ask me anything about financial literacy</p>
+    </div>
+    <div id="status-dot" class="status-dot" title="Bot status"></div>
+  </header>
+
+  <!-- Chat Window -->
+  <main id="chat-window" role="log" aria-live="polite" aria-label="Chat messages">
+
+    <!-- Welcome screen (removed on first message) -->
+    <div id="welcome">
+      <span class="welcome-icon" aria-hidden="true">💰</span>
+      <h2>Welcome to Rich Dad Poor Dad Bot</h2>
+      <p>
+        Ask me any question about <strong>financial literacy</strong>,
+        <strong>assets &amp; liabilities</strong>, <strong>investing</strong>,
+        <strong>cash flow</strong>, or the lessons from
+        <em>Rich Dad Poor Dad</em> by Robert Kiyosaki.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Suggestion chips -->
+  <section id="suggestions" aria-label="Suggested questions"></section>
+
+  <!-- Input area -->
+  <footer id="input-area">
+    <textarea
+      id="user-input"
+      placeholder="Ask a question about Rich Dad Poor Dad…"
+      rows="1"
+      aria-label="Your question"
+      autocomplete="off"
+      spellcheck="true"
+    ></textarea>
+    <button id="send-btn" aria-label="Send question" title="Send">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+      </svg>
+    </button>
+  </footer>
+
+</div>
+
+<script src="js/bot.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
